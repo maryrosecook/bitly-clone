@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 
 app.post('/', function (req, res) {
   var urlToShorten = req.body.url.trim();
-  if (urlToShorten === "") {
+  if (urlToShorten === "" || urlToShorten === "http://") {
     res.render('index', { flash: { message: "You did not specify a URL to shorten" }});
   } else {
     var shortUrlAndHash = shorten(req, urlToShorten);
