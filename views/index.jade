@@ -1,0 +1,17 @@
+html
+  head
+    title Mary's URL shortener
+  body
+    h1 Mary's URL shortener
+
+    if flash
+      div #{flash.message}
+
+    form(action="/", method="post")
+            span.label URL:&nbsp;
+            input(type="text", name="url", value="http://" size=50)
+            input(type="submit", value="Shorten")
+
+    if shortenedUrl
+      div Shortened URL:&nbsp;
+        a(href!=shortenedUrl) #{shortenedUrl}
